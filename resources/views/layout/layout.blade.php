@@ -1,55 +1,46 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="h-100">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('app.css') }}">
     <link rel="icon" href="{{ asset('m.ico') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>@yield('title')</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </head>
 
 
 <body>
-    <header>
+    <div class="container">
         @include('layout/header')
-    </header>
+        <div class="wrapper">
 
-    <div class="flash">
-        @if(session('flash') !== null)
+        <!-- @if(session('flash') !== null)
         @if (session('flash'))
         {{ session('flash') }}
         @endif
-        @endif
-    </div>
+        @endif -->
 
-    <div class="sub-header">
-        @yield('sub-header')
-    </div>
-    <div class="wrapper">
+        <div class="bg-light py-lg-14 py-12 bg-cover ">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <main>
+                    @yield('content')
+                </main>
 
-        @isset ($leftbar)
-        @if ($leftbar == 'on')
-        <aside class="leftbar">
-            @yield('leftbar')
-        </aside>
-        @endif
-        @endisset
-
-        <main class="content">
-            @yield('content')
-        </main>
-
-    </div>
-    <footer class="footer">
-        <hr class="grey">
-        <div class="center">
-            @include('layout/footer')
+            </div>
         </div>
-    </footer>
+        </div>
 
+
+        @include('layout/footer')
+    </div>
 </body>
 
 </html>
